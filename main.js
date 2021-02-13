@@ -1,5 +1,3 @@
-console.log("game starts");
-
 const firstTurn = {
     0: ['','',''],
     1: ['','',''],
@@ -15,7 +13,7 @@ let thisTurn = {
 let lastTurn = 'X';
 
 function displayTurn (tileSet) {
-    console.log(`this turn tile set is : ${JSON.stringify(tileSet)}`);
+    //console.log(`this turn tile set is : ${JSON.stringify(tileSet)}`);
     const gameCase = document.getElementsByClassName('gameCase');
 
     for (let i = 0; i < gameCase.length; i++) {
@@ -57,7 +55,7 @@ function checkVictory(tileSet) {
         if(tileSet[0][i] == tileSet[1][i] && tileSet[1][i] == tileSet[2][i] ) {
 
             if (tileSet[0][i] != '' && tileSet[1][i] != '' && tileSet[2][i] != '') {
-                console.log(`Victoire pour ${tileSet[0][i]}`);
+                //console.log(`Victoire pour ${tileSet[0][i]}`);
                 return true;
             }
         }
@@ -66,7 +64,7 @@ function checkVictory(tileSet) {
     if(tileSet[0][0] == tileSet[1][1] && tileSet[1][1] == tileSet[2][2] ) {
 
         if (tileSet[0][0] != '') {
-            console.log(`Victoire pour ${tileSet[0][0]}`);
+            //console.log(`Victoire pour ${tileSet[0][0]}`);
             return true;
         }
     }
@@ -74,7 +72,7 @@ function checkVictory(tileSet) {
     if(tileSet[0][0] == tileSet[1][1] && tileSet[1][1] == tileSet[2][2] ) {
 
         if (tileSet[0][0] != '' && tileSet[1][1] != '' && tileSet[2][2] != '') {
-            console.log(`Victoire pour ${tileSet[1][1]}`);
+            //console.log(`Victoire pour ${tileSet[1][1]}`);
             return true;
         }
     }
@@ -82,7 +80,7 @@ function checkVictory(tileSet) {
     if(tileSet[0][2] == tileSet[1][1] && tileSet[1][1] == tileSet[2][0] ) {
 
         if (tileSet[0][2] != '' && tileSet[1][1] != '' && tileSet[2][0] != '') {
-            console.log(`Victoire pour ${tileSet[1][1]}`);
+            //console.log(`Victoire pour ${tileSet[1][1]}`);
             return true;
         }
     }
@@ -142,9 +140,8 @@ function resetGame() {
         1:['','',''],
         2:['','','']
     }
+
     displayTurn(thisTurn);
     document.getElementById('messageBox').innerHTML = '';
     lastTurn = 'X';
 }
-
-displayTurn(firstTurn);
