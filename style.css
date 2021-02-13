@@ -1,6 +1,7 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
+    background-color:lightblue;
 }
 
 .gameContainer {
@@ -17,7 +18,14 @@ body {
     padding-top: 25%;
     font-size: 500%;
     font-weight: bolder;
+    opacity: 0.5;
+    transition: 100ms;
 }
+
+.gameCase:hover {
+    opacity:1.0;
+}
+
 
 #tile-0-0 {
     background-color:palegreen;
@@ -53,4 +61,12 @@ body {
 
 #tile-2-0 {
     background-color:papayawhip;
+}
+
+#messageBox {
+    margin-bottom: 2em;
+    margin-top: 2em;
+    height: 2em;
+    display: block;
+    
 }
