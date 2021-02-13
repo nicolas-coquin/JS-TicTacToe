@@ -12,6 +12,8 @@ let thisTurn = {
     2: ['','','']
 }
 
+let lastTurn = 'X';
+
 function displayTurn (tileSet) {
     console.log(`this turn tile set is : ${JSON.stringify(tileSet)}`);
     const gameCase = document.getElementsByClassName('gameCase');
@@ -88,8 +90,23 @@ function checkVictory(tileSet) {
 }
 
 function addTile (XO, row, col) {
-    let tileSet = thisTurn;
     thisTurn[row][col] = XO;
+}
+
+function playTurn(row,col) {
+    const XO = lastTurn;
+
+    addTile(XO,row,col);
+    displayTurn(thisTurn);
+    if (checkVictory(thisTurn)) {
+        alert(`${XO} is the winner !`);
+    }
+
+    if (lastTurn == 'X') {
+        lastTurn = 'O';
+    } else {
+        lastTurn = 'X';
+    }
 }
 
 displayTurn(firstTurn);
