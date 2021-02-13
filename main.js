@@ -1,10 +1,16 @@
 console.log("game starts");
 
 const firstTurn = {
-    0: ['X','','X'],
-    1: ['','O',''],
-    2: ['X','','X']
+    0: ['','',''],
+    1: ['','',''],
+    2: ['','','']
 };
+
+let thisTurn = {
+    0: ['','',''],
+    1: ['','',''],
+    2: ['','','']
+}
 
 function displayTurn (tileSet) {
     console.log(`this turn tile set is : ${JSON.stringify(tileSet)}`);
@@ -34,7 +40,7 @@ function displayTurn (tileSet) {
     }
 }
 
-function victory(tileSet) {
+function checkVictory(tileSet) {
 
     for (let i = 0; i < 3; i++){
         if(tileSet[i][0] == tileSet[i][1] && tileSet[i][1] == tileSet[i][2] ) {
@@ -54,7 +60,36 @@ function victory(tileSet) {
         }
     }
 
+    if(tileSet[0][0] == tileSet[1][1] && tileSet[1][1] == tileSet[2][2] ) {
+        if (tileSet[0][0] != '') {
+            console.log(`Victoire pour ${tileSet[0][0]}`);
+            return true;
+        }
+    }
+
+    if(tileSet[0][0] == tileSet[1][1] && tileSet[1][1] == tileSet[2][2] ) {
+        if (tileSet[0][0] != '') {
+            console.log(`Victoire pour ${tileSet[1][1]}`);
+            return true;
+        }
+    }
+
+    if(tileSet[0][2] == tileSet[1][1] && tileSet[1][1] == tileSet[2][0] ) {
+        if (tileSet[0][0] != '') {
+            console.log(`Victoire pour ${tileSet[1][1]}`);
+            return true;
+        }
+    }
+
+    //If no condition is met
+    return false;
+
+
+}
+
+function addTile (XO, row, col) {
+    let tileSet = thisTurn;
+    thisTurn[row][col] = XO;
 }
 
 displayTurn(firstTurn);
-victory(firstTurn);
