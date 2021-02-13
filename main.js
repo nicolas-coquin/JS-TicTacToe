@@ -109,4 +109,13 @@ function playTurn(row,col) {
     }
 }
 
+function resetGame() {
+    thisTurn = {
+        0:['','',''],
+        1:['','',''],
+        2:['','','']
+    }
+    displayTurn(thisTurn);
+}
+
 displayTurn(firstTurn);
