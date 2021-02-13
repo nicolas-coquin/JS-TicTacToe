@@ -13,6 +13,10 @@ body {
 
 .gameCase {
     margin: 1px;
+    text-align: center;
+    padding-top: 25%;
+    font-size: 500%;
+    font-weight: bolder;
 }
 
 #tile-0-0 {
