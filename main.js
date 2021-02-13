@@ -96,16 +96,21 @@ function addTile (XO, row, col) {
 function playTurn(row,col) {
     const XO = lastTurn;
 
-    addTile(XO,row,col);
-    displayTurn(thisTurn);
-    if (checkVictory(thisTurn)) {
-        alert(`${XO} is the winner !`);
-    }
-
-    if (lastTurn == 'X') {
-        lastTurn = 'O';
+    if (thisTurn[row][col] != '' || checkVictory(thisTurn)) {
+        //Cannot play, so do nothing
     } else {
-        lastTurn = 'X';
+        addTile(XO,row,col);
+        displayTurn(thisTurn);
+        if (checkVictory(thisTurn)) {
+            alert(`${XO} is the winner !`);
+        }
+
+        if (lastTurn == 'X') {
+            lastTurn = 'O';
+        } else {
+            lastTurn = 'X';
+        }
+
     }
 }
 
@@ -116,6 +121,7 @@ function resetGame() {
         2:['','','']
     }
     displayTurn(thisTurn);
+    lastTurn = 'X';
 }
 
 displayTurn(firstTurn);
