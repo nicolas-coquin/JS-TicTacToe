@@ -93,6 +93,19 @@ function checkVictory(tileSet) {
 
 }
 
+function checkDraw(tileSet) {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (tileSet[i][j] == '') {
+                return false;
+            }
+        }
+    }
+
+    //if no tile is empty
+    return true;
+}
+
 function addTile (XO, row, col) {
     thisTurn[row][col] = XO;
 }
@@ -106,7 +119,12 @@ function playTurn(row,col) {
         addTile(XO,row,col);
         displayTurn(thisTurn);
         if (checkVictory(thisTurn)) {
-            alert(`${XO} is the winner !`);
+            //Display the winner
+            document.getElementById('messageBox').innerHTML = `${XO} is the winner !`
+
+        } else if (checkDraw(thisTurn)) {
+            //It's a draw
+            document.getElementById('messageBox').innerHTML = `It's a draw !`
         }
 
         if (lastTurn == 'X') {
@@ -125,6 +143,7 @@ function resetGame() {
         2:['','','']
     }
     displayTurn(thisTurn);
+    document.getElementById('messageBox').innerHTML = '';
     lastTurn = 'X';
 }
 
