@@ -46,8 +46,8 @@ function checkVictory(tileSet) {
 
     for (let i = 0; i < 3; i++){
         if(tileSet[i][0] == tileSet[i][1] && tileSet[i][1] == tileSet[i][2] ) {
-            if (tileSet[i][0] != '') {
-                console.log(`Victoire pour ${tileSet[i][0]}`);
+
+            if (tileSet[i][0] != '' && tileSet[i][1] != '' && tileSet[i][2] != '') {
                 return true;
             }
         }
@@ -55,7 +55,8 @@ function checkVictory(tileSet) {
 
     for (let i = 0; i < 3; i++){
         if(tileSet[0][i] == tileSet[1][i] && tileSet[1][i] == tileSet[2][i] ) {
-            if (tileSet[0][i] != '') {
+
+            if (tileSet[0][i] != '' && tileSet[1][i] != '' && tileSet[2][i] != '') {
                 console.log(`Victoire pour ${tileSet[0][i]}`);
                 return true;
             }
@@ -63,6 +64,7 @@ function checkVictory(tileSet) {
     }
 
     if(tileSet[0][0] == tileSet[1][1] && tileSet[1][1] == tileSet[2][2] ) {
+
         if (tileSet[0][0] != '') {
             console.log(`Victoire pour ${tileSet[0][0]}`);
             return true;
@@ -70,14 +72,16 @@ function checkVictory(tileSet) {
     }
 
     if(tileSet[0][0] == tileSet[1][1] && tileSet[1][1] == tileSet[2][2] ) {
-        if (tileSet[0][0] != '') {
+
+        if (tileSet[0][0] != '' && tileSet[1][1] != '' && tileSet[2][2] != '') {
             console.log(`Victoire pour ${tileSet[1][1]}`);
             return true;
         }
     }
 
     if(tileSet[0][2] == tileSet[1][1] && tileSet[1][1] == tileSet[2][0] ) {
-        if (tileSet[0][0] != '') {
+
+        if (tileSet[0][2] != '' && tileSet[1][1] != '' && tileSet[2][0] != '') {
             console.log(`Victoire pour ${tileSet[1][1]}`);
             return true;
         }
